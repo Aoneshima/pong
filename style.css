@@ -1,0 +1,23 @@
+body {
+    margin: 0 auto;
+    padding: 0;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #16bb48;
+}
+/* 
+#app {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+@font-face {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/golostext/v6/q5uCsoe9Lv5t7Meb31EcExN8hA.woff2);
+}
