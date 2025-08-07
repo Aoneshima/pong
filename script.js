@@ -17,8 +17,8 @@ class GameScene extends Phaser.Scene{
         this.add.sprite(238, 168, 'fondo');
         this.ball = this.physics.add.sprite(300, 200, 'ball');
 
-        this.hund1 = this.physics.add.sprite(40, 150, 'hund1');
-        this.hundR = this.physics.add.sprite(270, 150, 'hundR');
+        this.hund1 = this.physics.add.sprite(70, 150, 'hund1');
+        this.hundR = this.physics.add.sprite(400, 150, 'hundR');
 
         this.pintarMarkador();
 
@@ -30,7 +30,7 @@ class GameScene extends Phaser.Scene{
         //     anguloInicial = anguloInicial + Math.PI;
         // }
 
-        const velocydad = 350;
+        const velocydad = 400;
         const vx = Math.cos(anguloInicial) * velocydad;
         const vy = Math.sin(anguloInicial) * velocydad;
         this.ball.body.velocity.x = vx;
@@ -45,7 +45,7 @@ class GameScene extends Phaser.Scene{
 
         //добавление кнопок управления
         this.controlesVisuales({x: 10, y: 50}, {x: 10, y: 280}, this.hund1);
-        this.controlesVisualesR({x: 300, y: 50}, {x: 300, y: 280}, this.hundR);
+        this.controlesVisualesR({x: 460, y: 50}, {x: 460, y: 280}, this.hundR);
 
         //столкновение объектов
         this.physics.add.collider(this.ball, this.hund1);
@@ -104,7 +104,7 @@ class GameScene extends Phaser.Scene{
             this.alguienGano = true; // Устанавливаем флаг
             this.markadorHundL.text = parseInt(this.markadorHundL.text) + 1;
             this.colocarPelota(this.lose1);
-        } else if (this.ball.x > 330) { // Заменяем if на else if
+        } else if (this.ball.x > 476) { // Заменяем if на else if
             console.log('2 lose');
             this.alguienGano = true; // Устанавливаем флаг
             this.markadorHundR.text = parseInt(this.markadorHundR.text) + 1;
@@ -163,8 +163,8 @@ controlesVisualesR(btn1, btn2, player){
     this.alguienGano = false;
         this.tweens.add({
             targets: this.ball,
-            x: 165,
-            y: 250,
+            x: 238,
+            y: 200,
             duration: 500,
             ease: 'Power2'
         });
@@ -172,16 +172,16 @@ controlesVisualesR(btn1, btn2, player){
 
     pintarMarkador(){
         console.log('1111')
-        this.markadorHundL = this.add.text(80, 5, '0', {fontFamily: 'Golos Text', fontSize: 50, color: '#002fffff', align: 'right',}).setOrigin(1, 0);
-        this.markadorHundR = this.add.text(280, 5, '0', {fontFamily: 'Golos Text', fontSize: 50, color: '#ff0000ff',})
+        this.markadorHundL = this.add.text(250, 10, '0', {fontFamily: 'Golos Text', fontSize: 80, color: '#002fffff', align: 'right',}).setOrigin(1, 0);
+        this.markadorHundR = this.add.text(290, 10, '0', {fontFamily: 'Golos Text', fontSize: 80, color: '#ff0000ff',})
     }
 };
 
 
 let config = {
             type: Phaser.AUTO,
-            width: 330,
-            height: 500,
+            width: 476,
+            height: 336,
             scene: new GameScene(),
             physics:{
                 default: 'arcade',
@@ -197,9 +197,5 @@ let config = {
         let game = new Phaser.Game(config);
 
         function resize(){
-    const canvas = document.querySelector('canvas');
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
-    canvas.style.width = windowWidth + 'px';
-    canvas.style.height = windowHeight + 'px';
+    console.log("!");
 }
